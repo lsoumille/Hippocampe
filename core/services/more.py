@@ -89,12 +89,12 @@ def main(jsonRequest):
 #	 u'199.9.24.1': 0,
 #	 u'datingzzzj.ru': 0,
 #	 u'trkl.su': 0}
-
-	for keyRes, listMatch in response.items():
-		for keyScore, scoreDict in hipposcoreDict.items():
-			if keyRes == keyScore:
-				for match in listMatch:
-					match['hipposcore'] = scoreDict
+	if hipposcoreDict is not None:
+		for keyRes, listMatch in response.items():
+			for keyScore, scoreDict in hipposcoreDict.items():
+				if keyRes == keyScore:
+					for match in listMatch:
+						match['hipposcore'] = scoreDict
 	logger.info('more.main end')
 	return response
 

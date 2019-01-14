@@ -17,12 +17,14 @@ def simpleDownload(url, listSessions):
 	                #the default session is always the first element in the list
 	                selectedSession = listSessions[0]
 	
+	
 	raw_page = selectedSession['session'].get(url, stream = True)
 	#requests does not raise exception if status is not 200 by default
 	#that's why we use raise_for_status()
 	raw_page.raise_for_status()
 	#returning raw content and not text to avoid encoding issues
-	return raw_page.content
+	raw_page.encoding = 'UTF-8'
+	return raw_page.text
 
 class EmptyFeedException(Exception):
 	def __init__(self,url):

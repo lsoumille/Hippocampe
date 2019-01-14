@@ -69,7 +69,7 @@ def littleMsearch(coreIntelligence, typeNameES, listParsedData):
 	#        }
 	#}]
 
-	res = es.msearch(body = req)
+	res = es.msearch(body = req, max_concurrent_searches = 16)
 	# res will look like
 #{u'responses': [{u'_shards': {u'failed': 0, u'successful': 5, u'total': 5},
 #                 u'hits': {u'hits': [{u'_id': u'AVOuC41q6EIAXcyxAFz0',

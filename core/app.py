@@ -10,6 +10,10 @@ import logging
 from logging.handlers import RotatingFileHandler
 import threading
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+
 app_dir = os.path.dirname(os.path.abspath(__file__))
 
 #create logger
